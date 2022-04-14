@@ -1,0 +1,54 @@
+# Bash sript !/bin/bash called 'HW1'
+# for use - sudo chmod +x ~/bash-script.txt
+# working with home directory ~/
+echo "1) The current directory is:"
+pwd
+echo "2) Create directory called '/dir1' in your shown directory:"
+mkdir dir1
+echo "3) Lets move to directory called '/dir1':"
+cd dir1
+echo "4) Make 3 directories called '/a', '/b', '/c' in '/dir1':"
+mkdir a | mkdir b | mkdir c
+echo "5) Lets move to folder called 'b':"
+cd b
+echo "6) Produce 2 txt files (file1.txt, file2.txt) and 2 json files(jvm.json, jdk.json) in dir /dir1/b/:"
+> file1.txt | > file2.txt | > jvm.json | > jdk.json 
+echo "7) Produce 3 folders  in dir /dir1/b/ called '/00', '01/', '/10':"
+mkdir 00 | mkdir 01 | mkdir 10
+echo "8) Lets see full hierarchy in directory /dir1/b/"
+ls -l
+#
+#something strange
+mkdir ~/dir1/c/{c,c/c/,c/c/c/}
+echo something strange > ~/dir1/c/c/c/c/stragne-file
+#
+echo "9-11) Now create file scr.txt and lets write some words to file"
+echo This is first line > scr.txt
+echo "this is second line" >> scr.txt 
+echo "good job sir, everything working well" >> scr.txt
+echo "12) To navigate up one directory level"
+cd ..
+echo "13) Move 2 files to other folder (scr.txt and jvm.txt to /dir1/a/):"
+mv ../dir1/b/scr.txt ../dir1/b/jvm.json ../dir1/a/
+echo "14) Copy 2 files to other folder (file1.txt and file2.txt to /dir1/c/):"
+cp ../dir1/b/file2.txt ../dir1/b/file1.txt ../dir1/c/
+#	15) search file by name
+#	find . -depth -name "strange-file*"
+#	find . -type f -name "trange-file"
+#	16) view content in real time
+#	less +F ~/dir1/a/scr.txt
+#	17) output the first few lines from a text file
+#	head -n 5 ~/dir1/a/scr.txt
+#	18) print the last few lines from a text file
+#	tail -n 5 ~/dir1/a/scr.txt
+#	19) view the contents of a long file.
+#	less ~/dir1/a/scr.txt
+echo "20) show date and time"
+var=$(date)
+var=`date`
+echo "$var"
+echo ""
+echo "Send an http request to the server"
+#If you want to send data from file to web service, you can also use the following command:
+curl -X POST -d @filename http://162.55.220.72:5005/
+wget http://162.55.220.72:5005/index.html
